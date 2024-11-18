@@ -4,7 +4,12 @@ const app = express();
 app.listen(3000, () => {
 
 });
-app.get(`*`, (req, res) => {
+
+app.get(`/`, (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get(`kezdo`, (req, res) => {
     res.send("Hi there");
 });
 
@@ -19,8 +24,4 @@ app.get(`/greeting`, (req, res) => {
 
 app.get(`/nodejs`, (req, res) => {
     res.send("A Node.js egy olyan szerveroldali JavaScript futtatókörnyezet, amely a V8 JavaScript motorra épül.");
-});
-
-app.get(`/` + (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
 });
